@@ -11,7 +11,8 @@ $host = filter_input(INPUT_SERVER, 'SERVER_ADDR');
 $port = 51345;
 
 
-$socket = socket_create(AF_INET, SOCK_STREAM, 0) or die("Could not create socket\n");
+$socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP) or die("Could not create socket\n");
+socket_set_option($socket, SOL_SOCKET, SO_REUSEADDR, 1) or die("Could not set option to socket.\n");
 socket_bind($socket, $host, $port) or die("Could not bind to socket\n");
 socket_listen($socket, 3) or die("Could not set up socket listener\n");
 
@@ -26,6 +27,7 @@ do {
         continue;
     }
     
+    // Handle connections
     if (in_array($socket, $read)) {
         $conn = socket_accept($socket) or die("Could not accept incoming connection\n");
         $clients[] = $conn;
@@ -34,17 +36,28 @@ do {
         socket_write($conn, $msg, strlen($msg));
     }
     
+    // Handle messages
     foreach ($clients as $key => $client) {
         if (in_array($client, $read)) {
             $recv = socket_read($client, 2048) or die("Could not read received message\n");
-            echo "Received: " . $recv . "\n";
-            if ($recv == 'bye') {
+            $recv = json_decode($recv, true);
+            
+            $phone = $recv["phone_number"];
+            $chat = $recv["chat"];
+            $msg = $recv["message"];
+            
+            if ($msg == 'bye') {
                 unset($clients[$key]);
                 socket_close($client);
                 break;
             }
-            $answer = "Client {$key}: $recv.\n";
-            echo "Answer: " . $answer . "\n";
+            if ($msg == 'quit') {
+                break 2;
+            }
+            
+            $sql = "INSERT INTO message VALUES('$phone', $chat, DEFAULT, '$msg');";
+            
+            $answer = "Client {$key}: $sql.\n";
             socket_write($client, $answer, strlen($answer));
         }
     }
