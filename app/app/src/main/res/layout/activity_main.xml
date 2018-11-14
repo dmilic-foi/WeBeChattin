@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
+        android:id="@+id/tvHelloWorld"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -19,6 +20,16 @@
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"/>
+        android:text="Login"
+        android:onClick="onClickLoginButton"
+        android:layout_below="@id/tvHelloWorld"/>
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/registrationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:onClick="onClickRegistrationButton"
+        android:layout_below="@id/loginButton"/>
+
+</RelativeLayout>
