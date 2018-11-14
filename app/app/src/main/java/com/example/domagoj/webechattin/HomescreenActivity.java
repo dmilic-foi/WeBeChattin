@@ -110,11 +110,18 @@ public class HomescreenActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
+            View rootView = null;
 
-
-            View rootView = inflater.inflate(R.layout.fragment_homescreen, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)){
+                case 1:
+                    //do something
+                    rootView = inflater.inflate(R.layout.tab1chat, container, false);
+                    break;
+                case 2:
+                    //do something
+                    rootView = inflater.inflate(R.layout.tab2contacts, container, false);
+                    break;
+            }
             return rootView;
         }
     }
