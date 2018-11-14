@@ -29,7 +29,7 @@ do {
     
     // Handle connections
     if (in_array($socket, $read)) {
-        $conn = socket_accept($socket) or die("Could not accept incoming connection\n");
+        $conn = socket_accept($socket) or die("Could not accept incoming connection\n"); // TODO change to if()
         $clients[] = $conn;
         $key = array_keys($clients, $conn);
         $msg = "All good\n";
@@ -39,8 +39,10 @@ do {
     // Handle messages
     foreach ($clients as $key => $client) {
         if (in_array($client, $read)) {
-            $recv = socket_read($client, 2048) or die("Could not read received message\n");
-            $recv = json_decode($recv, true);
+            if (!$recv = json_decode(socket_read($client, 2048), true)) {
+                echo "SERVER ERROR: Could not read received message\n";
+                continue;
+            }
             
             $phone = $recv["phone_number"];
             $chat = $recv["chat"];
