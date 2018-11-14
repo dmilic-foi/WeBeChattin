@@ -6,4 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".RegistrationActivity">
 
+    <EditText
+        android:id="@+id/etPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        android:digits="0123456789+"
+        android:hint="@string/etNumber"/>
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_below="@id/etPhoneNumber" />
 </RelativeLayout>
