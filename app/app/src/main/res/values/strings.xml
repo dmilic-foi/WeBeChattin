@@ -6,4 +6,5 @@
     <string name="tab_text_1">Chat</string>
     <string name="tab_text_2">Contacts</string>
     <string name="etNumber">Enter your phone number</string>
+    <string name="buttonSubmit">Verification code has been sent to your phone!</string>
 </resources>
