@@ -1,43 +1,42 @@
 package com.example.domagoj.webechattin;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
+import android.widget.EditText;
 
 public class RegistrationActivity extends AppCompatActivity {
+
+    private EditText editTextMobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-    }
 
-    public void onClickSubmit (View view){
-        // inflate the layout of the popup window
-        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.popup_registration_window, null);
+        editTextMobile = findViewById(R.id.editTextMobile);
 
-        // create the popup window
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true; // lets taps outside the popup also dismiss it
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-
-        // show the popup window
-        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-
-        // dismiss the popup window when touched
-        popupView.setOnTouchListener(new View.OnTouchListener() {
+        findViewById(R.id.buttonLogin).setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                popupWindow.dismiss();
-                return true;
+            public void onClick(View v) {
+
+                String mobile = editTextMobile.getText().toString().trim();
+
+                if(mobile.isEmpty() || mobile.length() < 9){
+                    editTextMobile.setError("Enter a valid mobile");
+                    editTextMobile.requestFocus();
+                    return;
+                }
+
+                Intent intent = new Intent(RegistrationActivity.this, VerifyPhoneActivity.class);
+                intent.putExtra("mobile", mobile);
+                startActivity(intent);
             }
         });
+    }
+
+    public void onClickContinue (View view){
+
     }
 }
