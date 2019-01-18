@@ -29,7 +29,9 @@
             android:name=".HomescreenActivity"
             android:label="@string/title_activity_homescreen"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".VerifyPhoneActivity"></activity>
+        <activity android:name=".VerifyPhoneActivity" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".ContactsActivity"></activity>
     </application>
 
 </manifest>
