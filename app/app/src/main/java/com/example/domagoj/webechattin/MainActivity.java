@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.domagoj.webechattin.PhoneAuth.RegistrationActivity;
+import com.example.domagoj.webechattin.PhoneAuth.VerifyPhoneActivity;
 import com.example.domagoj.webechattin.chat.Client;
 import android.view.View;
 import android.widget.EditText;

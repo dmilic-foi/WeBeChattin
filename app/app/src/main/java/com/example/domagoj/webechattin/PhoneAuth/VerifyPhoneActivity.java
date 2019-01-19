@@ -1,4 +1,4 @@
-package com.example.domagoj.webechattin;
+package com.example.domagoj.webechattin.PhoneAuth;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +10,14 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.domagoj.webechattin.HomescreenActivity;
+import com.example.domagoj.webechattin.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 

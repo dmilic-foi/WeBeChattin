@@ -1,10 +1,12 @@
-package com.example.domagoj.webechattin;
+package com.example.domagoj.webechattin.PhoneAuth;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.example.domagoj.webechattin.R;
 
 public class RegistrationActivity extends AppCompatActivity {
 
