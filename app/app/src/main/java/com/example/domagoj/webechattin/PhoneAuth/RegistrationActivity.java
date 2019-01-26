@@ -1,27 +1,21 @@
-package com.example.domagoj.webechattin;
+package com.example.domagoj.webechattin.PhoneAuth;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.example.domagoj.webechattin.PhoneAuth.RegistrationActivity;
-import com.example.domagoj.webechattin.PhoneAuth.VerifyPhoneActivity;
-
-import com.example.domagoj.webechattin.chat.Client;
 import android.view.View;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.domagoj.webechattin.R;
+
+public class RegistrationActivity extends AppCompatActivity {
 
     private EditText editTextMobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        Client client = new Client("161.53.120.171", 51345);
-        client.execute();
+        setContentView(R.layout.activity_registration);
 
         editTextMobile = findViewById(R.id.editTextMobile);
 
@@ -31,22 +25,20 @@ public class MainActivity extends AppCompatActivity {
 
                 String mobile = editTextMobile.getText().toString().trim();
 
-                if(mobile.isEmpty() || mobile.length() < 8){
+                if(mobile.isEmpty() || mobile.length() < 9){
                     editTextMobile.setError("Enter a valid mobile");
                     editTextMobile.requestFocus();
                     return;
                 }
 
-                Intent intent = new Intent(MainActivity.this, VerifyPhoneActivity.class);
+                Intent intent = new Intent(RegistrationActivity.this, VerifyPhoneActivity.class);
                 intent.putExtra("mobile", mobile);
                 startActivity(intent);
             }
         });
     }
 
+    public void onClickContinue (View view){
 
-    public void onClickRegistrationButton(View view){
-        Intent intent = new Intent(this, RegistrationActivity.class);
-        startActivity(intent);
     }
 }

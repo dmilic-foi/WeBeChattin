@@ -6,30 +6,110 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/tvHelloWorld"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:onClick="onClickLoginButton"
-        android:layout_below="@id/tvHelloWorld"/>
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="233dp"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/logo" />
 
-    <Button
-        android:id="@+id/registrationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registration"
-        android:onClick="onClickRegistrationButton"
-        android:layout_below="@id/loginButton"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_below="@id/relativeLayout"
+        android:layout_marginTop="-50dp" />
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="-1dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Please, log in and wait for the verification code!"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:textColor="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/editTextMobile"
+            android:layout_width="288dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_marginTop="19dp"
+            android:digits="0123456789"
+            android:drawablePadding="10dp"
+            android:hint="enter your phone number"
+            android:inputType="phone"
+            android:maxLength="10" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="73dp"
+            android:layout_height="33dp"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="128dp"
+            android:layout_toStartOf="@+id/editTextMobile"
+            android:layout_toLeftOf="@+id/editTextMobile"
+            android:text="+385" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextMobile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textColor="#cdd8f1" />
+
+        <TextView
+            android:id="@+id/textViewRegister"
+            android:layout_width="197dp"
+            android:layout_height="52dp"
+            android:layout_below="@+id/buttonLogin"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="106dp"
+            android:layout_marginLeft="106dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="61dp"
+            android:layout_marginRight="61dp"
+            android:clickable="true"
+            android:onClick="onClickRegistrationButton"
+            android:text="You are new? Register!" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

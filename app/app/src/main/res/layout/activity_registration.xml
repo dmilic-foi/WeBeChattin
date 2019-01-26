@@ -4,22 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationActivity">
+    tools:context=".PhoneAuth.RegistrationActivity">
 
-    <EditText
-        android:id="@+id/etPhoneNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="phone"
-        android:digits="0123456789+"
-        android:hint="@string/etNumber"/>
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <Button
-        android:id="@+id/submitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:layout_below="@id/etPhoneNumber"
-        android:onClick="onClickSubmit"/>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="81dp"
+            android:text="Enter your phone number and register!"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:textColor="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/editTextMobile"
+            android:layout_width="295dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_marginTop="89dp"
+            android:digits="0123456789"
+            android:drawablePadding="10dp"
+            android:hint="enter your phone number"
+            android:inputType="phone"
+            android:maxLength="10" />
+
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="296dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_marginTop="28dp"
+            android:digits="0123456789"
+            android:drawablePadding="10dp"
+            android:hint="enter your username"
+            android:inputType="phone"
+            android:maxLength="10" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextMobile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="34dp"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="onClickContinue"
+            android:text="Continue"
+            android:textAllCaps="false"
+            android:textColor="#cdd8f1" />
+
+        <TextView
+            android:id="@+id/textView385"
+            android:layout_width="66dp"
+            android:layout_height="22dp"
+            android:layout_below="@+id/editTextUsername"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="206dp"
+            android:layout_toStartOf="@+id/editTextMobile"
+            android:layout_toLeftOf="@+id/editTextMobile"
+            android:text="+385" />
+
+    </RelativeLayout>
+
 </RelativeLayout>
